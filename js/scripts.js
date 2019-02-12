@@ -1,7 +1,7 @@
 //back-end logic
 
 var allNumbers = [];
-var primeNumbers = [2];
+var primeNumbers = [];
 var userNumber;
 
 var findPrime = function(number) {
@@ -13,15 +13,22 @@ $(function() {
   $("#primeNumbersFinder").submit(function(event) {
     event.preventDefault();
     userNumber = parseInt($("#userNumberInput").val());
-    if (userNumber < 2) {
-      $("#primeNumbers").append("<p>Please enter a positive integer than 1</p>");
-      $("#primeNumbers").show();
-    } else if (userNumber >= 2) {
-      var i;
-      for (i = 2; i <= userNumber; ++i) {
-        allNumbers.push(i);
-      }
-    }; //end else if statement
-    console.log(allNumbers);
+    var i;
+    for (i = 2; i <= userNumber; ++i) {
+      allNumbers.push(i);
+    }
+    allNumbers.forEach(function(number) {
+      var smallestMultiple = number;
+      allNumbers.forEach(function(number2) {
+        console.log(number2/smallestMultiple);
+        if ((number2%smallestMultiple) === 0) {
+          allNumbers.splice(allNumbers.indexOf(number2 - 2), 1)
+          console.log(allNumbers);
+        } //else console.log("didn't work");
+      });
+    });
+    $("#primeNumbers").html(allNumbers);
+    $(".userNumber").html(userNumber);
+    $(".hidden").show();
   }); //end of submit function
 }); //end of front-end logic
