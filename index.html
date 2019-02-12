@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Prime Numbers</title>
+      <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+      <link href="css/styles.css" rel="stylesheet" type="text/css">
+      <script src="js/jquery-3.3.1.js"></script>
+      <script src="js/scripts.js"></script>
+    </head>
+    <body>
+      <div class="container">
+        <h2>Prime Number Finder</h2>
+        <p>This program will list all prime numbers less than a number input below. Give it a try!</p>
+        <form id="primeNumbersFinder">
+          <div class="form-group">
+            <label for="userNumberInput">Enter any number here: </label>
+            <input id="userNumberInput" type="number" min="2" step="1" required>
+          </div>
+         <button type="submit">Find Prime Numbers!</button>
+        </form>
+        <div id="primeNumbers" class="mt-3">
+          <p>Here is a list of all prime numbers smaller than <b><span class="userNumber"></span></b>:</p>
+        </div>
+      </div>
+    </body>
+  </html>
